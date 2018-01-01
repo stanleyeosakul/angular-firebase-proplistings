@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">PropListings</a>
+    <div class="navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/listings">Listings</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/add-listing">Add Listing</a></li>
+      </ul>
+      <div class="navbar-nav">
+        <li><a class="btn" routerLinkActive="active" routerLink="/login">Login</a></li>
+      </div>
+    </div>
+  </div>
+</nav>
