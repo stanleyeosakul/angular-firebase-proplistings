@@ -346,6 +346,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular2-flash-messages@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/angular2-flash-messages/-/angular2-flash-messages-2.0.5.tgz#5866c8b8df97d0d0832085febc0f2f441fe99de2"
+
 angularfire2@^5.0.0-rc.4:
   version "5.0.0-rc.4"
   resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-5.0.0-rc.4.tgz#65c4d2ed768c3251b0b611ce51d6b42ac8afeabc"

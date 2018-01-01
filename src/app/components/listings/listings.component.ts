@@ -11,13 +11,15 @@ export class ListingsComponent implements OnInit {
 
   listings: Listing[];
 
-  constructor(private firestore: FirestoreService) { }
-
-  ngOnInit() {
+  constructor(private firestore: FirestoreService) { 
     this.firestore.getListings().subscribe(listings => {
       this.listings = listings;
       console.log(this.listings);
     });
+  }
+
+  ngOnInit() {
+
   }
 
 }

@@ -6,6 +6,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 import { AppRouting } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -37,11 +38,13 @@ import { FirestoreService } from './services/firestore.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FlashMessagesModule,
     AppRouting
   ],
   providers: [
     FirestoreService,
-    FireauthService
+    FireauthService,
+    FlashMessagesService
   ],
   bootstrap: [AppComponent]
 })
