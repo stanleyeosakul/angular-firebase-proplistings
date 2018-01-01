@@ -2,6 +2,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 import { AppRouting } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -12,6 +16,9 @@ import { ListingComponent } from './components/listing/listing.component';
 import { AddListingComponent } from './components/add-listing/add-listing.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+
+import { FireauthService } from './services/fireauth.service';
+import { FirestoreService } from './services/firestore.service';
 
 @NgModule({
   declarations: [
@@ -27,9 +34,15 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   imports: [
     BrowserModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     AppRouting
   ],
-  providers: [],
+  providers: [
+    FirestoreService,
+    FireauthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
