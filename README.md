@@ -178,7 +178,7 @@ Cloud Storage for Firebase used to store and serve user-generated files such as 
       this.errorSwitch = false;
 
       // upload.name and upload.url is defined asynchronously only after upload is completed
-      // listing object will define upload.name and upload.url correctly if upload time < 2000 milliseconds (2 seconds)
+      // listing object will define image_name and image_url correctly if upload time < 2 seconds
       setTimeout(() => {
         this.listing.image_name = this.currentUpload.name;
         this.listing.image_path = this.currentUpload.url;
