@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
 export class AddListingComponent {
 
   listing: any = {};
-
   selectedFiles: FileList | null;
   currentUpload: Upload;
   submitSwitch = false;
@@ -31,15 +30,17 @@ export class AddListingComponent {
     this.selectedFiles = ($event.target as HTMLInputElement).files;
   }
 
-  uploadSingle() {
+  onUploadImage() {
     const file = this.selectedFiles;
     if (file && file.length === 1) {
       this.currentUpload = new Upload(file.item(0));
       this.fireStorage.pushUpload(this.currentUpload);
       this.errorSwitch = false;
 
-      // Will grab upload.url correctly if upload time < 2 seconds
+      // upload.name and upload.url is defined asynchronously after upload is completed
+      // listing object will define upload.name and upload.url correctly if upload time < 2 seconds
       setTimeout(() => {
+        this.listing.image_name = this.currentUpload.name;
         this.listing.image_path = this.currentUpload.url;
         this.submitSwitch = true;
       }, 2000);

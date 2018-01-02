@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Upload } from '../models/upload';
-import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
-import { Observable } from 'rxjs/Observable';
+import { Listing } from '../models/listing';
 
 @Injectable()
 export class FirestorageService {
 
   basePath = 'listing_images';
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor() { }
 
-  // Executes the file uploading to firebase https://firebase.google.com/docs/storage/web/[basePath]
+  // Executes the file uploading to firebase storage at https://firebase.google.com/docs/storage/web/[basePath]
   pushUpload(upload: Upload) {
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
@@ -31,7 +30,6 @@ export class FirestorageService {
         if (uploadTask.snapshot.downloadURL) {
           upload.url = uploadTask.snapshot.downloadURL;
           upload.name = upload.file.name;
-          this.saveFileData(upload);
           return;
         } else {
           console.error('No download URL!');
@@ -40,9 +38,9 @@ export class FirestorageService {
     );
   }
 
-  // Writes the file details to the realtime db
-  saveFileData(upload: Upload) {
-    this.db.list(`${this.basePath}/`).push(upload);
+  deleteUpload(listing: Listing) {
+    const storageRef = firebase.storage().ref();
+    const uploadTask = storageRef.child(`${this.basePath}/${listing.image_name}`).delete();
   }
 
 }

@@ -39,7 +39,7 @@
   </div>
   <div class="form-group">
     <div *ngIf="errorSwitch" class="alert alert-danger" role="alert">Please select a file, then click Upload</div>
-    <a class="btn btn-primary" routerLink="/add-listing" (click)="uploadSingle()">Upload</a>
+    <a class="btn btn-primary" routerLink="/add-listing" (click)="onUploadImage()">Upload</a>
     <input class="btn btn-success" type="submit" value="Submit" [disabled]="!submitSwitch || !addForm.valid">
   </div>
 </form>

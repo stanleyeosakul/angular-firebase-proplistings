@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore.service';
+import { FirestorageService } from '../../services/firestorage.service';
 import { Listing } from '../../models/listing';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -15,6 +16,7 @@ export class ListingComponent implements OnInit {
 
   constructor(
     private fireStore: FirestoreService,
+    private fireStorage: FirestorageService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -24,6 +26,11 @@ export class ListingComponent implements OnInit {
     this.fireStore.getListingDetails(this.id).subscribe((listing: Listing) => {
       this.listing = listing;
     });
+  }
+
+  onDeleteClick() {
+    this.fireStore.deleteListing(this.id);
+    this.fireStorage.deleteUpload(this.listing);
   }
 
 }

@@ -1,3 +1,50 @@
-<p>
-  edit-listing works!
-</p>
+<a routerLink="/listings">Go Back</a>
+<br>
+<h2 class="page-header">Edit Listing</h2>
+<div *ngIf="editState">
+  <form #editForm="ngForm" (ngSubmit)="onEditSubmit(listing)">
+    <div class="form-group">
+      <label for="title">Title
+        <sup class="red">*</sup>
+      </label>
+      <input required type="text" class="form-control" [(ngModel)]="listing.title" name="title" id="title">
+    </div>
+    <div class="form-group">
+      <label for="city">City
+        <sup class="red">*</sup>
+      </label>
+      <input required type="text" class="form-control" [(ngModel)]="listing.city" name="city" id="city">
+    </div>
+    <div class="form-group">
+      <label for="owner">Owner
+        <sup class="red">*</sup>
+      </label>
+      <input required type="text" class="form-control" [(ngModel)]="listing.owner" name="owner" id="owner">
+    </div>
+    <div class="form-group">
+      <label for="bedrooms">Bedrooms
+        <sup class="red">*</sup>
+      </label>
+      <input required type="number" class="form-control" [(ngModel)]="listing.bedrooms" name="bedrooms" id="bedrooms">
+    </div>
+    <div class="form-group">
+      <label for="type">Type
+        <sup class="red">*</sup>
+      </label>
+      <select required type="text" class="form-control" [(ngModel)]="listing.type" name="type" id="type">
+        <option value="Estate">Estate</option>
+        <option value="Condo">Condo</option>
+        <option value="Apartment">Apartment</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price
+        <sup class="red">*</sup>
+      </label>
+      <input required type="text" class="form-control" [(ngModel)]="listing.price" name="price" id="price">
+    </div>
+    <div class="form-group">
+      <input class="btn btn-success" type="submit" value="Submit" [disabled]="!editForm.valid">
+    </div>
+  </form>
+</div>

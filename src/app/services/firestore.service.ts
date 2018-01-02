@@ -12,8 +12,8 @@ export class FirestoreService {
   listings: Observable<Listing[]>;
   listing: Observable<Listing>;
 
-  constructor(private firestore: AngularFirestore) {
-    this.listingsCollection = firestore.collection<Listing>('listings');
+  constructor(private afStore: AngularFirestore) {
+    this.listingsCollection = afStore.collection<Listing>('listings');
   }
 
   getListings(): Observable<Listing[]> {
@@ -28,13 +28,23 @@ export class FirestoreService {
   }
 
   getListingDetails(id: string): Observable<Listing> {
-    this.listingDoc = this.firestore.doc<Listing>(`listings/${id}`);
+    this.listingDoc = this.afStore.doc<Listing>(`listings/${id}`);
     this.listing = this.listingDoc.valueChanges();
     return this.listing;
   }
 
   addListing(listing: Listing) {
     this.listingsCollection.add(listing);
+  }
+
+  updateListing(id: string, listing: Listing) {
+    this.listingDoc = this.afStore.doc(`listings/${id}`);
+    this.listingDoc.update(listing);
+  }
+
+  deleteListing(id: string) {
+    this.listingDoc = this.afStore.doc(`listings/${id}`);
+    this.listingDoc.delete();
   }
 
 }

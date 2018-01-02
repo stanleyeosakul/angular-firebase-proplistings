@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FireauthService } from '../../services/fireauth.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class HomeComponent {
 
-  constructor(public fireAuth: FireauthService, public flashMessage: FlashMessagesService) { }
+  constructor(public fireAuth: FireauthService) { }
 
   login() {
     this.fireAuth.afLogin();
