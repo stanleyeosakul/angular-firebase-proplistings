@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
@@ -20,6 +21,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { FireauthService } from './services/fireauth.service';
 import { FirestoreService } from './services/firestore.service';
+import { FirestorageService } from './services/firestorage.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { FirestoreService } from './services/firestore.service';
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     FlashMessagesModule,
@@ -44,6 +47,7 @@ import { FirestoreService } from './services/firestore.service';
   providers: [
     FirestoreService,
     FireauthService,
+    FirestorageService,
     FlashMessagesService
   ],
   bootstrap: [AppComponent]

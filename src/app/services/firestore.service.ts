@@ -33,4 +33,8 @@ export class FirestoreService {
     return this.listing;
   }
 
+  addListing(listing: Listing) {
+    this.listingsCollection.add(listing);
+  }
+
 }

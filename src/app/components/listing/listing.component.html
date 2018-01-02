@@ -1,17 +1,21 @@
 <a routerLink="/listings">Go Back</a><br>
-<h2 class="page-header">{{ listing?.title }} <small>{{ listing?.city }}</small></h2>
+<h2 class="page-header">{{ listing?.title }}, <small>located in {{ listing?.city }}</small></h2>
 <div class="row">
   <div class="col-md-4">
-    <!-- Image here -->
+    <img style="width: 100%" class="img-thumbnail" src="{{ listing?.image_path }}">
   </div>
   <div class="col-md-8">
     <ul class="list-group">
-      <li class="list-group-item">{{ listing?.owner }}</li>
-      <li class="list-group-item">{{ listing?.bedrooms }}</li>
-      <li class="list-group-item">{{ listing?.type }}</li>
-      <li class="list-group-item">{{ listing?.price }}</li>
+      <li class="list-group-item">Owner: {{ listing?.owner }}</li>
+      <li class="list-group-item">Number of bedrooms: {{ listing?.bedrooms }}</li>
+      <li class="list-group-item">Listing Type: {{ listing?.type }}</li>
+      <li class="list-group-item">Listing Price: {{ listing?.price }}</li>
     </ul>
   </div>
-  <a class="btn btn-success" href="#">Edit</a>
-  <a class="btn btn-danger" href="#">Delete</a>
+</div><br>
+<div class="row">
+  <div class="col-md-12">
+    <a class="btn btn-success" href="#">Edit</a>
+    <a class="btn btn-danger" href="#">Delete</a>
+  </div>
 </div>

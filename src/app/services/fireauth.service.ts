@@ -20,7 +20,8 @@ export class FireauthService {
   }
 
   afLogout() {
-    firebase.auth().signOut().then(() => {
+    firebase.auth().signOut()
+    .then(() => {
       console.log('Sign Out Successful');
     }).catch(function (err) {
       console.log(err);

@@ -16,7 +16,6 @@ export class ListingsComponent implements OnInit {
   ngOnInit() {
     this.fireStore.getListings().subscribe((listings: Listing[]) => {
       this.listings = listings;
-      console.log(this.listings);
     });
   }
 

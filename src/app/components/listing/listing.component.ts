@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore.service';
 import { Listing } from '../../models/listing';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listing',
@@ -24,9 +23,7 @@ export class ListingComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.fireStore.getListingDetails(this.id).subscribe((listing: Listing) => {
       this.listing = listing;
-      console.log(this.listing);
     });
   }
-
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FireauthService } from '../../services/fireauth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -7,12 +7,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   templateUrl: './home.component.html',
   styles: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(public fireAuth: FireauthService, public flashMessage: FlashMessagesService) { }
-
-  ngOnInit() {
-  }
 
   login() {
     this.fireAuth.afLogin();
