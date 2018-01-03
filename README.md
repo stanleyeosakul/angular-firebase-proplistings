@@ -1,6 +1,11 @@
 # Firebase Property Listings
 This project is an update of the code found in the video series [Angular 2 & Firebase App](https://www.youtube.com/watch?v=m5fHtGtyPgk&list=PLillGF-RfqbYftYr5T6bv9idBU7oyADoZ) by *Brad Traversy* using **Angular 5, AngularFire2 (v5), and the Cloud Firestore Database**.  His original code repo may be found [here](https://github.com/bradtraversy/proplistings).  Instructions on how to deploy this code to Firebase are also included.
 
+<p align="center">
+    <img width="500" height="309" src="./src/assets/img/homepage.png"><br>
+    <a href="https://proplistings-bc625.firebaseapp.com/" target="_blank">Firebase Property Listings App</a>
+</p>
+
 ## Versions Used
 * Angular CLI v1.6.3
 * Angular v5.1.2
