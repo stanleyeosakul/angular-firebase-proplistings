@@ -3,7 +3,6 @@ This project is an update of the code found in the video series [Angular 2 & Fir
 
 <p align="center">
     <img width="500" height="309" src="./src/assets/img/homepage.png"><br>
-    <a href="https://proplistings-bc625.firebaseapp.com/" target="_blank">Firebase Property Listings App</a>
 </p>
 
 ## Versions Used
